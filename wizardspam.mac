@@ -26,7 +26,7 @@ Sub Main
 		/varset ethtimer 155 s
 	}
 
-	/if (${Me.Inventory[Chest].Name.Find[Basher's Robe of Clarity]} && !${FindItem[Basher's Robe of Clarity].Timer}) {
+	/if (${Me.Inventory[Chest].Name.Find[Basher's Robe of Clarity]} && !${FindItem[Basher's Robe of Clarity].Timer} && ${Me.CombatState.Equal[COMBAT]}) {
         	/casting "Basher's Robe of Clarity" item
 	}
 
