@@ -11,10 +11,9 @@ Sub Main
 
 	/if (!${Me.Buff[Tserrina's Enchanted Shadows].ID} && ${Me.Inventory[head].Name.Find[Sunderock Cowl of Vaxxol]}) /itemnotify head rightmouseup
 	
-	/if (!${Me.AltAbilityReady["Fire Core"]} && ${Me.CombatState.Equal[COMBAT]}) {
+	/if (${Me.AltAbilityReady["Fire Core"]} && ${Me.CombatState.Equal[COMBAT]}) {
 		/alt act 621
 	}
-	
 	
 	/if (${Me.Inventory[Chest].Name.Find[Basher's Robe of Clarity]} && !${FindItem[Basher's Robe of Clarity].Timer} && ${Me.CombatState.Equal[COMBAT]}) {
         	/casting "Basher's Robe of Clarity" item
