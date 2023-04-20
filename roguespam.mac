@@ -13,31 +13,24 @@ Sub Main
 
 	/if (${Me.AbilityReady[Backstab]}) /doability Backstab
 
-	/if (!${FindItem[Nightshade, Blade of Entropy].TimerReady}) {
+	/if (!${FindItem[Nightshade, Blade of Entropy].TimerReady} && ${Me.CombatState.Equal[COMBAT]}) {
 		/itemnotify  "Nightshade, Blade of Entropy" rightmouseup
 	}
 	
-	|/if (!${FindItem[Fatestealer].TimerReady}) {
-	|	/itemnotify  "Fatestealer" rightmouseup
-	|}
 
 	/if (!${Me.Song[Thief's eyes].ID}) {
 		/disc Thief's eyes
 	}
 	
-	/if (${Me.AltAbilityReady[Rogue's Fury]}) {
+	/if (${Me.AltAbilityReady[Rogue's Fury]} && ${Me.CombatState.Equal[COMBAT]}) {
 		/casting "Rogue's Fury"
 	}
 	
-	/if (${Me.Inventory[Chest].Name.Find[Hunter's Mail of Eternity]} && !${FindItem[Hunter's Mail of Eternity].Timer}) {
+	/if (${Me.Inventory[Chest].Name.Find[Hunter's Mail of Eternity]} && !${FindItem[Hunter's Mail of Eternity].Timer} && ${Me.CombatState.Equal[COMBAT]}) {
         	/casting "Hunter's Mail of Eternity" item
 	}
 	
 	/if (!${Me.Buff[Masked Strength].ID}) /itemnotify leftwrist rightmouseup
-
-	|/if (${FindItem[Whispering Tunic of Shadows].TimerReady}==0) {
-	|	/casting "Whispering Tunic of Shadows" item -maxtries|1
-	|}
 	
 	
 /return
