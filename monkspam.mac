@@ -1,0 +1,38 @@
+Sub Main
+:Nobuff
+
+/If (${Zone.ShortName.Equal[potranquility]}) /goto :nobuff
+
+
+	/if ((${Me.Inventory[Back].Name.Find[Shield of the Ages]} || ${Me.Inventory[Back].Name.Find[Mechidragon Scaled Armor]}) && (!${FindItem[Shield of the Ages].Timer} || !${FindItem[Mechidragon Scaled Armor].Timer}) && ${Me.Buff[Ancient Stonewall XII].Duration} < 100) {
+        /nomodkey /itemnotify back rightmouseup
+	}
+
+	/if (${Me.Inventory[rightwrist].Name.Find[Royal Brushed Kote]} && !${FindItem[Royal Brushed Kote].Timer} && ${Me.Buff[Cloak of Anarchy].Duration} < 50) {
+	/nomodkey /itemnotify rightwrist rightmouseup
+	}
+
+	/if (!${Me.Buff[Insane Goblin Blessing].ID}) /casting "Insane Goblin Familiar (Halloween Reward)" item
+
+	/if (${FindItem[Crab Fu: The Way of the Quickening Fists].ID} && !${Me.Buff[Crab Fu: The Way of the Quickening Fists].ID}) {
+		/itemnotify  "Crab Fu: The Way of the Quickening Fists" rightmouseup
+	}
+
+	/if (!${Me.Buff[Timeless: Haste].ID})  /casting "Wings of the Angel" item
+
+	/if (!${Me.Buff[Fastest Travel Clickie].ID}) /casting "Fastest Travel (Reward Item)" item
+	
+	/if (!${Me.Song[Fists of Wu].ID}) /disc Fists of Wu
+	
+	/if (${Me.CombatAbilityReady["Dragon Fang"]}) /disc Dragon Fang
+
+	/if (${Me.AbilityReady["Flying Kick"]}) /doability "Flying Kick"
+
+	/if (${Me.AbilityReady["Tiger Claw"]}) /doability "Tiger Claw"
+
+
+	/if (${Me.Inventory[Chest].Name.Find[Rent's Tunic of Azeroth]} && !${FindItem[Rent's Tunic of Azeroth].Timer}) {
+        	/casting "Rent's Tunic of Azeroth" item
+	}
+	
+/return
