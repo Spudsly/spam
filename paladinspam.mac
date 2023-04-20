@@ -1,0 +1,19 @@
+Sub Main
+	/if ((${Me.Inventory[Back].Name.Find[Shield of the Ages]} || ${Me.Inventory[Back].Name.Find[Mechidragon Scaled Armor]}) && (!${FindItem[Shield of the Ages].Timer} || !${FindItem[Mechidragon Scaled Armor].Timer}) && ${Me.Buff[Ancient Stonewall XII].Duration} < 100) {
+        /nomodkey /itemnotify back rightmouseup
+	}
+
+	/if (!${Me.Buff[Insane Goblin Blessing].ID}) /itemnotify 2 rightmouseup
+
+	/if (!${Me.Song[Yaulp XII].ID}) /casting "Yaulp XII"
+
+	/if (!${Me.Aura[Holy Aura].ID}) /casting "Holy Aura"
+
+	/if (!${Me.Buff[Focus of Healing].ID}) /casting "Focus of Healing"
+
+	/if (!${Me.Buff[Gift of the Avenger II].ID}) /casting "Gift of the Avenger II"
+
+	/if (!${Me.Buff[Kaldar's Helping Hand II].ID}) /casting "Kaldar's Helping Hand II"
+
+
+/return

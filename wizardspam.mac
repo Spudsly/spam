@@ -1,0 +1,39 @@
+Sub Main
+	/if (!${Defined[ethtimer]}) /declare ethtimer timer global
+
+	/if (${Me.Inventory[Back].Name.Find[Shield of the Ages]} && !${FindItem[Shield of the Ages].Timer} && !${Me.Buff[${FindItem[Shield of the Ages].Spell}].ID}) {
+        /nomodkey /itemnotify back rightmouseup
+	}
+	
+	/if (${Me.Inventory[rightwrist].Name.Find[Royal Brushed Kote]} && !${FindItem[Royal Brushed Kote].Timer} && ${Me.Buff[Cloak of Anarchy].Duration} < 50) {
+	/nomodkey /itemnotify rightwrist rightmouseup
+	}
+
+	/if (!${Me.Buff[Insane Goblin Blessing].ID}) /casting "Insane Goblin Familiar (Halloween Reward)" item
+
+	/if (!${Me.Buff[Tserrina's Enchanted Shadows].ID} && ${Me.Inventory[head].Name.Find[Sunderock Cowl of Vaxxol]}) /itemnotify head rightmouseup
+
+	/if (!${Me.Buff[Timeless: Haste].ID} && ${Me.Inventory[Ammo].Name.Find[Wings of the Angel]} && !${FindItem[Wings of the Angel].Timer}) /itemnotify ammo rightmouseup
+	
+	/if (!${Me.Buff[Cryomancy].ID}) /alt act 640
+
+	/if (!${Me.Buff[E'ci's Icy Familiar].ID}) /alt act 304
+
+	/if (!${Me.Buff[Painfully Gorgeous].ID}) /itemnotify 4 rightmouseup
+	
+	/if (${Me.Buff[Thick Ether Skin].Duration} < 10 && !${ethtimer}) {
+		/itemnotify 13 rightmouseup
+		/varset ethtimer 155 s
+	}
+
+	/if (${Me.Inventory[Chest].Name.Find[Basher's Robe of Clarity]} && !${FindItem[Basher's Robe of Clarity].Timer}) {
+        	/casting "Basher's Robe of Clarity" item
+	}
+
+	/If (${Cast.Ready[Idol of the Jailed]}) {
+		/itemnotify 11 rightmouseup
+	} else {
+		/cast "Dimur's Glacial Gift"
+	}
+	
+/return

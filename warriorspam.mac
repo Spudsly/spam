@@ -1,0 +1,22 @@
+Sub Main
+	/if ((${Me.Inventory[Back].Name.Find[Shield of the Ages]} || ${Me.Inventory[Back].Name.Find[Mechidragon Scaled Armor]}) && (!${FindItem[Shield of the Ages].Timer} || !${FindItem[Mechidragon Scaled Armor].Timer}) && ${Me.Buff[Ancient Stonewall XII].Duration} < 100) {
+        /nomodkey /itemnotify back rightmouseup
+	}
+
+	/if (${Me.Buff[Warrior's Defense VIII].Duration} < 100) /itemnotify 13 rightmouseup
+
+	/if (!${Me.Buff[Insane Goblin Blessing].ID} || (${Me.CombatState.NotEqual[COMBAT]} && !${Bool[${Pet.ID}]})) /itemnotify 2 rightmouseup
+
+	/if (${Me.AbilityReady[Taunt]}) /doability Taunt
+
+	/if (!${Me.Song[Commanding Voice].ID}) /discipline Commanding Voice
+	
+	/if (!${FindItem[Bashful Crustaceans' Angerbomb].TimerReady}) /itemnotify  "Visage of the Powerslave" rightmouseup
+
+	/if (${Me.CombatAbilityReady[Bazu Bellow]}) /discipline Bazu Bellow
+	
+	/if (${Me.AbilityReady[Slam]}) /doability Slam
+
+	/itemnotify ${FindItem[lost sands].InvSlot} rightmouseup
+		
+/return

@@ -1,0 +1,43 @@
+Sub Main
+	/if ((${Me.Inventory[Back].Name.Find[Shield of the Ages]} || ${Me.Inventory[Back].Name.Find[Mechidragon Scaled Armor]}) && (!${FindItem[Shield of the Ages].Timer} || !${FindItem[Mechidragon Scaled Armor].Timer}) && ${Me.Buff[Ancient Stonewall XII].Duration} < 100) {
+        /nomodkey /itemnotify back rightmouseup
+	}
+
+	/if (${Me.Inventory[rightwrist].Name.Find[Royal Brushed Kote]} && !${FindItem[Royal Brushed Kote].Timer} && ${Me.Buff[Cloak of Anarchy].Duration} < 50) {
+	/nomodkey /itemnotify rightwrist rightmouseup
+	}
+
+	/if (!${Me.Buff[Insane Goblin Blessing].ID}) /casting "Insane Goblin Familiar (Halloween Reward)" item
+
+	/if (!${Me.Buff[Tserrina's Enchanted Shadows].ID}) /itemnotify feet rightmouseup
+
+	/if (${Me.AbilityReady[Backstab]}) /doability Backstab
+
+	/if (!${FindItem[Nightshade, Blade of Entropy].TimerReady}) {
+		/itemnotify  "Nightshade, Blade of Entropy" rightmouseup
+	}
+	
+	|/if (!${FindItem[Fatestealer].TimerReady}) {
+	|	/itemnotify  "Fatestealer" rightmouseup
+	|}
+
+	/if (!${Me.Song[Thief's eyes].ID}) {
+		/disc Thief's eyes
+	}
+	
+	/if (${Me.AltAbilityReady[Rogue's Fury]}) {
+		/casting "Rogue's Fury"
+	}
+	
+	/if (${Me.Inventory[Chest].Name.Find[Hunter's Mail of Eternity]} && !${FindItem[Hunter's Mail of Eternity].Timer}) {
+        	/casting "Hunter's Mail of Eternity" item
+	}
+	
+	/if (!${Me.Buff[Masked Strength].ID}) /itemnotify leftwrist rightmouseup
+
+	|/if (${FindItem[Whispering Tunic of Shadows].TimerReady}==0) {
+	|	/casting "Whispering Tunic of Shadows" item -maxtries|1
+	|}
+	
+	
+/return

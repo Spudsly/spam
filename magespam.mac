@@ -1,0 +1,29 @@
+Sub Main
+	/if (${Me.Inventory[Back].Name.Find[Shield of the Ages]} && !${FindItem[Shield of the Ages].Timer} && !${Me.Buff[${FindItem[Shield of the Ages].Spell}].ID}) {
+        /nomodkey /itemnotify back rightmouseup
+	}
+	
+	/if (${Me.Inventory[rightwrist].Name.Find[Royal Brushed Kote]} && !${FindItem[Royal Brushed Kote].Timer} && ${Me.Buff[Cloak of Anarchy].Duration} < 50) {
+	/nomodkey /itemnotify rightwrist rightmouseup
+	}
+
+	/if (!${Me.Buff[Insane Goblin Blessing].ID}) /casting "Insane Goblin Familiar (Halloween Reward)" item
+
+	/if (!${Me.Buff[Tserrina's Enchanted Shadows].ID} && ${Me.Inventory[head].Name.Find[Sunderock Cowl of Vaxxol]}) /itemnotify head rightmouseup
+	
+	/if (!${Me.AltAbilityReady["Fire Core"]}) {
+		/alt act 621
+	}
+	
+	
+	/if (${Me.Inventory[Chest].Name.Find[Basher's Robe of Clarity]} && !${FindItem[Basher's Robe of Clarity].Timer}) {
+        	/casting "Basher's Robe of Clarity" item
+	}
+
+	/If (${Cast.Ready[Idol of the Jailed]}) {
+		/itemnotify 11 rightmouseup
+	} else {
+		/cast "Shylo's Bolt of Doom IV"
+	}
+	
+/return
