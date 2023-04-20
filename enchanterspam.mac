@@ -1,8 +1,5 @@
 Sub Main
-	/if (${Me.Inventory[Back].Name.Find[Shield of the Ages]} && !${FindItem[Shield of the Ages].Timer} && !${Me.Buff[${FindItem[Shield of the Ages].Spell}].ID}) {
-        /nomodkey /itemnotify back rightmouseup
-	}
-	/if (${Me.Inventory[Back].Name.Find[Mechidragon Scaled Armor]} && !${FindItem[Mechidragon Scaled Armor].Timer} && ${Me.Buff[Ancient Stonewall XII].Duration} < 100) {
+	/if ((${Me.Inventory[Back].Name.Find[Shield of the Ages]} || ${Me.Inventory[Back].Name.Find[Mechidragon Scaled Armor]}) && (!${FindItem[Shield of the Ages].Timer} || !${FindItem[Mechidragon Scaled Armor].Timer}) && ${Me.Buff[Ancient Stonewall XII].Duration} < 100) {
         /nomodkey /itemnotify back rightmouseup
 	}
 	
@@ -11,6 +8,12 @@ Sub Main
 	}
 
 	/if (!${Me.Buff[Insane Goblin Blessing].ID}) /casting "Insane Goblin Familiar (Halloween Reward)" item
+
+	/if (${Me.Inventory[Chest].Name.Find[Basher's Robe of Clarity]} && !${FindItem[Basher's Robe of Clarity].Timer}) {
+        	/casting "Basher's Robe of Clarity" item
+	}
+	
+	/if (!${Me.Buff[Painfully Gorgeous].ID}) /itemnotify 4 rightmouseup	
 
 	/if (!${Me.Buff[Tserrina's Enchanted Shadows].ID} && ${Me.Inventory[head].Name.Find[Sunderock Cowl of Vaxxol]}) /itemnotify head rightmouseup
 	
