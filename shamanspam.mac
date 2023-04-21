@@ -50,7 +50,7 @@ Sub Main
 
 	/if (!${Me.Buff[Wisest Healer].ID} && ${Me.Inventory[ranged].Name.Find[Crystalline Idol of Healing Boon]}) /itemnotify 11 rightmouseup
 	
-	/if (!${Me.Buff[Champion].ID} && ${Me.CombatState.Equal[COMBAT]}) /casting "5417" 
+	/if (!${Me.Buff[Champion].ID} && ${Me.CombatState.Equal[COMBAT]}) /casting "5417" -targetid|${Spawn[=Rubette pc].ID}
 
 	/if (!${Me.Song[Ancestral Grudge].ID} && ${Me.CombatState.Equal[COMBAT]}) /casting "10604" -targetid|${Spawn[=Rubette pc].ID}
 
