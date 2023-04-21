@@ -30,7 +30,7 @@ Sub Main
 	}
 	
 	/if (${Me.Inventory[Chest].Name.Find[Hunter's Mail of Eternity]} && !${FindItem[Hunter's Mail of Eternity].Timer} && ${Me.CombatState.Equal[COMBAT]}) {
-        	/casting "Hunter's Mail of Eternity" item
+        	/itemnotify chest rightmouseup
 	}
 	
 	/if (!${Me.Buff[Masked Strength].ID} && ${Me.Inventory[leftwrist].Name.Find[Sunderock Burning Sun Wristguards of Fortune]}) /itemnotify leftwrist rightmouseup
