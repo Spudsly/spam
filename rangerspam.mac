@@ -65,7 +65,7 @@ Sub Main
 
 	/If (!${epictimer) {
 		/itemnotify 13 rightmouseup
-		/varset epictimer 85 s
+		/varset epictimer 81 s
 	}
 	
 |-------------------------------------------------------------------
