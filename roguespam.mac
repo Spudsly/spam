@@ -9,15 +9,18 @@ Sub Main
 
 	/if (!${Me.Buff[Insane Goblin Blessing].ID}) /casting "Insane Goblin Familiar (Halloween Reward)" item
 
-	/if (!${Me.Buff[Tserrina's Enchanted Shadows].ID}) /itemnotify feet rightmouseup
+	/if (!${Me.Buff[Tserrina's Enchanted Shadows].ID} && ${Me.Inventory[feet].Name.Find[Sunderock Poison-Master's Thunderstruck Boots]}) /itemnotify feet rightmouseup
 
 	/if (${Me.AbilityReady[Backstab]}) /doability Backstab
 
-	/if (!${FindItem[Nightshade, Blade of Entropy].TimerReady} && ${Me.CombatState.Equal[COMBAT]}) {
+	/if (!${Me.Buff[Fastest Travel Clickie].ID} && ${FindItem[=Fastest Travel (Reward Item)].ID}) /casting "Fastest Travel (Reward Item)" item
+		
+	|/if (!${Me.Buff[Ancient: Deny Death I].ID} && !${FindItem[Legendary Ring of the Ages X].Timer} && ${FindItem[=Legendary Ring of the Ages X].ID}) /casting "Legendary Ring of the Ages X" item
+
+	/if (!${FindItem[Nightshade, Blade of Entropy].TimerReady} && ${FindItem[=Nightshade, Blade of Entropy].ID} && ${Me.CombatState.Equal[COMBAT]}) {
 		/itemnotify  "Nightshade, Blade of Entropy" rightmouseup
 	}
 	
-
 	/if (!${Me.Song[Thief's eyes].ID}) {
 		/disc Thief's eyes
 	}
@@ -30,7 +33,7 @@ Sub Main
         	/casting "Hunter's Mail of Eternity" item
 	}
 	
-	/if (!${Me.Buff[Masked Strength].ID}) /itemnotify leftwrist rightmouseup
+	/if (!${Me.Buff[Masked Strength].ID} && ${Me.Inventory[leftwrist].Name.Find[Sunderock Burning Sun Wristguards of Fortune]}) /itemnotify leftwrist rightmouseup
 	
 	
 /return
