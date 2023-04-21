@@ -1,0 +1,71 @@
+Sub Main
+
+|-------------------------------------------------------------------
+
+|NoBuff makes sure you don't spam your spells and abilities when you are in a specific zone. You can change the short name from potranquility to your own bind zone.
+
+
+:Nobuff
+
+	/If (${Zone.ShortName.Equal[potranquility]}) /goto :nobuff
+
+|-------------------------------------------------------------------
+
+|Timers, for items like the Wizards Thick Ether Skin below.
+
+
+
+
+|-------------------------------------------------------------------
+
+|Section for general buffs like Shield of the Ages, Wings of the Angel, Insane Goblin Familiar and so on. Basically buffs you use in general on all or most characters.
+
+
+
+	/if ((${Me.Inventory[Back].Name.Find[Shield of the Ages]} || ${Me.Inventory[Back].Name.Find[Mechidragon Scaled Armor]}) && (!${FindItem[Shield of the Ages].Timer} || !${FindItem[Mechidragon Scaled Armor].Timer}) && ${Me.Buff[Ancient Stonewall XII].Duration} < 100) {
+        /nomodkey /itemnotify back rightmouseup
+	}
+	
+	/if (!${Me.Buff[Timeless: Haste].ID})  /casting "Wings of the Angel" item
+
+	/if (!${Me.Buff[Fastest Travel Clickie].ID}) /casting "Fastest Travel (Reward Item)" item
+
+	/if (${Me.Inventory[rightwrist].Name.Find[Royal Brushed Kote]} && !${FindItem[Royal Brushed Kote].Timer} && ${Me.Buff[Cloak of Anarchy].Duration} < 50) {
+	/nomodkey /itemnotify rightwrist rightmouseup
+	}
+
+	/if (!${Me.Buff[Insane Goblin Blessing].ID}) /casting "Insane Goblin Familiar (Halloween Reward)" item
+
+	/if (!${Me.Buff[Ancient: Deny Death I].ID}) /casting "Legendary Ring of the Ages X" item
+
+|-------------------------------------------------------------------
+
+|Section for class specific buffs.
+
+
+
+	/if (!${Me.Buff[Tserrina's Enchanted Shadows].ID}) /itemnotify feet rightmouseup
+
+	/if (!${Me.Buff[Masked Strength III].ID}) /itemnotify leftwrist rightmouseup
+	
+	/if (${Me.Inventory[Chest].Name.Find[Hunter's Mail of Eternity]} && !${FindItem[Hunter's Mail of Eternity].Timer}) {
+        	/casting "Hunter's Mail of Eternity" item
+	}
+	
+	/if (!${Me.Buff[Secrets' Secret Ranger Secrets].ID}) /casting "9731"	
+
+	/if (!${Me.Buff[Howl of the Huntmaster III].ID}) /casting "11937"	
+
+|-------------------------------------------------------------------
+
+|Section for class specific combat routines. If there are certain abilities or items with abilities that you don't have, you can comment them off by using the | symbol in front of the code.
+
+
+
+|	/If (${Cast.Ready[Ultimate Long Sword XII]}) {
+|		/itemnotify 13 rightmouseup
+|	}
+	
+|-------------------------------------------------------------------
+
+/return
