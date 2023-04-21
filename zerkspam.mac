@@ -63,7 +63,7 @@ Sub Main
 
 
 
-	/If (${Cast.Ready[Ultimate Great Axe XII]} && !${epictimer) {
+	/If (!${epictimer) {
 		/itemnotify 13 rightmouseup
 		/varset ethtimer 6 s
 	}
