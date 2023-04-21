@@ -7,6 +7,10 @@ Sub Main
 
 	/if (!${Me.Buff[Insane Goblin Blessing].ID} || (${Me.CombatState.NotEqual[COMBAT]} && !${Bool[${Pet.ID}]})) /itemnotify 2 rightmouseup
 
+	/if (!${Me.Buff[Fastest Travel Clickie].ID} && ${FindItem[=Fastest Travel (Reward Item)].ID}) /casting "Fastest Travel (Reward Item)" item
+		
+	|/if (!${Me.Buff[Ancient: Deny Death I].ID} && !${FindItem[Legendary Ring of the Ages X].Timer} && ${FindItem[=Legendary Ring of the Ages X].ID}) /casting "Legendary Ring of the Ages X" item
+
 	/if (${Me.AbilityReady[Taunt]}) /doability Taunt
 
 	/if (!${Me.Song[Commanding Voice].ID}) /discipline Commanding Voice
