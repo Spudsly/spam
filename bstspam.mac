@@ -32,11 +32,10 @@ Sub Main
 
 	/if (!${Me.Buff[Insane Goblin Blessing].ID}) /casting "Insane Goblin Familiar (Halloween Reward)" item
 
-	/if (!${Me.Buff[Timeless: Haste].ID})  /casting "Wings of the Angel" item
+	/if (!${Me.Buff[Fastest Travel Clickie].ID} && ${FindItem[=Fastest Travel (Reward Item)].ID}) /casting "Fastest Travel (Reward Item)" item
+		
+	|/if (!${Me.Buff[Ancient: Deny Death I].ID} && !${FindItem[Legendary Ring of the Ages X].Timer} && ${FindItem[=Legendary Ring of the Ages X].ID}) /casting "Legendary Ring of the Ages X" item
 
-	/if (!${Me.Buff[Fastest Travel Clickie].ID}) /casting "Fastest Travel (Reward Item)" item
-
-	/if (!${Me.Buff[Ancient: Deny Death I].ID}) /casting "Legendary Ring of the Ages X" item
 
 |-------------------------------------------------------------------
 
@@ -46,7 +45,7 @@ Sub Main
 
 	/if (!${Me.Song[Auspice of the Hunter].ID}) /casting "Sunderock Boots of the Warboss" item
 
-	/if (${Me.Inventory[Chest].Name.Find[Rent's Tunic of Azeroth]} && !${FindItem[Rent's Tunic of Azeroth].Timer}) {
+	/if (${Me.Inventory[Chest].Name.Find[Rent's Tunic of Azeroth]} && !${FindItem[Rent's Tunic of Azeroth].Timer} && ${Me.CombatState.Equal[COMBAT]}) {
         	/casting "Rent's Tunic of Azeroth" item
 	}
 
@@ -56,7 +55,7 @@ Sub Main
 
 
 
-	/if (${Me.CombatAbilityReady["Bestial Fury Discipline"]}) /disc Bestial Fury Discipline
+	/if (${Me.CombatAbilityReady["Bestial Fury Discipline"]} && ${Me.CombatState.Equal[COMBAT]}) /disc Bestial Fury Discipline
 
 	/if (${Me.SpellReady["Vicious Ice V"]}) /casting "11923"
 
