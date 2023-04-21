@@ -1,0 +1,64 @@
+Sub Main
+|-------------------------------------------------------------------
+
+|NoBuff makes sure you don't spam your spells and abilities when you are in a specific zone. You can change the short name from potranquility to your own bind zone.
+
+
+:Nobuff
+
+	/If (${Zone.ShortName.Equal[potranquility]}) /goto :nobuff
+
+|-------------------------------------------------------------------
+
+|Timers, for items like the Wizards Thick Ether Skin below.
+
+
+
+
+|-------------------------------------------------------------------
+
+|Section for general buffs like Shield of the Ages, Wings of the Angel, Insane Goblin Familiar and so on. Basically buffs you use in general on all or most characters.
+
+
+
+	/if ((${Me.Inventory[Back].Name.Find[Shield of the Ages]} || ${Me.Inventory[Back].Name.Find[Mechidragon Scaled Armor]}) && (!${FindItem[Shield of the Ages].Timer} || !${FindItem[Mechidragon Scaled Armor].Timer}) && ${Me.Buff[Ancient Stonewall XII].Duration} < 100) {
+        /nomodkey /itemnotify back rightmouseup
+	}
+
+	/if (!${Me.Buff[Armor of the Crab III].ID})  /casting "Wings of the Angel" item
+
+	/if (!${Me.Buff[Fastest Travel Clickie].ID}) /casting "Fastest Travel (Reward Item)" item
+
+	/if (!${Me.Buff[Insane Goblin Blessing].ID}) /itemnotify 2 rightmouseup
+
+	/if (!${Me.Buff[Ancient: Deny Death I].ID}) /casting "Legendary Ring of the Ages X" item
+
+|-------------------------------------------------------------------
+
+|Section for class specific buffs.
+
+
+
+	/if (!${Me.Buff[Armor of the Cursed].ID}) /casting "Armor of the Cursed"
+
+	/if (!${Me.Buff[Call of the Void V].ID}) /casting "Call of the Void V"
+
+
+|-------------------------------------------------------------------
+
+|Section for class specific combat routines. If there are certain abilities or items with abilities that you don't have, you can comment them off by using the | symbol in front of the code.
+
+
+
+|	/If (${Cast.Ready[Ultimate Great Axe XII]}) {
+|		/itemnotify 13 rightmouseup
+|	}	
+
+	/If (${Cast.Ready[Jailer's Impenetrable Chestplate]}) {
+		/itemnotify 17 rightmouseup
+	}	
+
+|-------------------------------------------------------------------
+
+
+/return
