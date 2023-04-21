@@ -18,13 +18,13 @@ Sub Main
 		/itemnotify  "Crab Fu: The Way of the Quickening Fists" rightmouseup
 	}
 
-	/if (!${Me.Buff[Timeless: Haste].ID})  /casting "Wings of the Angel" item
-
-	/if (!${Me.Buff[Fastest Travel Clickie].ID} && !${FindItem[Fastest Travel Clickie].Timer}) /casting "Fastest Travel (Reward Item)" item
+	/if (!${Me.Buff[Fastest Travel Clickie].ID} && ${FindItem[=Fastest Travel (Reward Item)].ID}) /casting "Fastest Travel (Reward Item)" item
+		
+	|/if (!${Me.Buff[Ancient: Deny Death I].ID} && !${FindItem[Legendary Ring of the Ages X].Timer} && ${FindItem[=Legendary Ring of the Ages X].ID}) /casting "Legendary Ring of the Ages X" item
 	
 	/if (!${Me.Song[Fists of Wu].ID}) /disc Fists of Wu
 	
-	/if (${Me.CombatAbilityReady["Dragon Fang"]}) /disc Dragon Fang
+	/if (${Me.CombatAbilityReady["Dragon Fang"]} && ${Me.CombatState.Equal[COMBAT]}) /disc Dragon Fang
 
 	/if (${Me.AbilityReady["Flying Kick"]}) /doability "Flying Kick"
 
