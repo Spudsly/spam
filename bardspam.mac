@@ -12,7 +12,7 @@ Sub Main
 
 |Timers, for items like the Wizards Thick Ether Skin below.
 
-
+	/if (!${Defined[epictimer]}) /declare epictimer timer global
 
 
 |-------------------------------------------------------------------
@@ -53,11 +53,18 @@ Sub Main
 
 |Section for class specific combat routines. If there are certain abilities or items with abilities that you don't have, you can comment them off by using the | symbol in front of the code.
 
-
-
-	/if (${Me.CombatAbilityReady["Deftdance Discipline"]}) /disc Deftdance Discipline
+	/if (!${epictimer} && ${Me.CombatState.Equal[COMBAT]}) {
+	/twist stop
+	/nomodkey /itemnotify mainhand rightmouseup
+	}
 	
-	/if (${Me.AltAbilityReady["Fierce Eye"]}) {
+	/if (${Twist.Twisting} && !${Me.CombatState.Equal[COMBAT]}) /twist stop
+	
+	/if (!${Twist.Twisting} && ${Me.CombatState.Equal[COMBAT]}) /twist 1 2 3
+
+	/if (${Me.CombatAbilityReady["Deftdance Discipline"]} && ${Me.CombatState.Equal[COMBAT]}) /disc Deftdance Discipline
+	
+	/if (${Me.AltAbilityReady["Fierce Eye"]} && ${Me.CombatState.Equal[COMBAT]}) {
 		/alt act 3506
 	}
 
