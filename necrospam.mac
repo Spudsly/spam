@@ -1,0 +1,75 @@
+Sub Main
+|-------------------------------------------------------------------
+
+|NoBuff makes sure you don't spam your spells and abilities when you are in a specific zone. You can change the short name from potranquility to your own bind zone.
+
+
+:Nobuff
+
+	/If (${Zone.ShortName.Equal[potranquility]}) /goto :nobuff
+
+|-------------------------------------------------------------------
+
+|Timers, for items like the Wizards Thick Ether Skin below.
+
+
+
+
+|-------------------------------------------------------------------
+
+|Section for general buffs like Shield of the Ages, Wings of the Angel, Insane Goblin Familiar and so on. Basically buffs you use in general on all or most characters.
+
+
+
+	/if ((${Me.Inventory[Back].Name.Find[Shield of the Ages]} || ${Me.Inventory[Back].Name.Find[Mechidragon Scaled Armor]}) && (!${FindItem[Shield of the Ages].Timer} || !${FindItem[Mechidragon Scaled Armor].Timer}) && ${Me.Buff[Ancient Stonewall XII].Duration} < 100) {
+        /nomodkey /itemnotify back rightmouseup
+	}
+
+	/if (!${Me.Buff[Timeless: Haste].ID})  /casting "Wings of the Angel" item
+	
+
+	/if (!${Me.Buff[Fastest Travel Clickie].ID}) /casting "Fastest Travel (Reward Item)" item
+
+	
+	/if (${Me.Inventory[rightwrist].Name.Find[Royal Brushed Kote]} && !${FindItem[Royal Brushed Kote].Timer} && ${Me.Buff[Cloak of Anarchy].Duration} < 50) {
+	/nomodkey /itemnotify rightwrist rightmouseup
+	}
+
+	/if (!${Me.Buff[Insane Goblin Blessing].ID}) /casting "Insane Goblin Familiar (Halloween Reward)" item
+
+	/if (!${Me.Buff[Ancient: Deny Death I].ID}) /casting "Legendary Ring of the Ages X" item
+
+|-------------------------------------------------------------------
+
+|Section for class specific buffs.
+
+
+
+	/if (!${Me.Buff[Dark Beast].ID}) /casting "11651" 
+	
+	/if (!${Me.Buff[Painfully Gorgeous].ID} && (${Me.Inventory[Leftear].Name.Find[Earring of the Mystic Ages Rank 50]} || ${Me.Inventory[Rightear].Name.Find[Earring of the Mystic Ages Rank 50]})) /casting "Earring of the Mystic Ages Rank 50" item
+
+
+	/if (${Me.Inventory[Chest].Name.Find[Basher's Robe of Clarity]} && !${FindItem[Basher's Robe of Clarity].Timer}) {
+        	/casting "Basher's Robe of Clarity" item
+	}
+
+
+	/if (!${Me.Buff[Tserrina's Enchanted Shadows].ID} && ${Me.Inventory[head].Name.Find[Sunderock Cowl of Vaxxol]}) /itemnotify head rightmouseup
+
+|-------------------------------------------------------------------
+
+|Section for class specific combat routines. If there are certain abilities or items with abilities that you don't have, you can comment them off by using the | symbol in front of the code.
+
+
+
+	/If (${Cast.Ready[Idol of the Jailed]}) {
+		/itemnotify 11 rightmouseup
+	} else {
+		/cast "Death IV"
+	}
+
+|-------------------------------------------------------------------
+
+	
+/return
