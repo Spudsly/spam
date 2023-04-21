@@ -5,6 +5,10 @@ Sub Main
 
 	/if (!${Me.Buff[Insane Goblin Blessing].ID}) /itemnotify 2 rightmouseup
 
+	/if (!${Me.Buff[Fastest Travel Clickie].ID} && ${FindItem[=Fastest Travel (Reward Item)].ID}) /casting "Fastest Travel (Reward Item)" item
+		
+	|/if (!${Me.Buff[Ancient: Deny Death I].ID} && !${FindItem[Legendary Ring of the Ages X].Timer} && ${FindItem[=Legendary Ring of the Ages X].ID}) /casting "Legendary Ring of the Ages X" item
+
 	/if (!${Me.Song[Yaulp XII].ID}) /casting "Yaulp XII"
 
 	/if (!${Me.Aura[Holy Aura].ID}) /casting "Holy Aura"
@@ -15,5 +19,8 @@ Sub Main
 
 	/if (!${Me.Buff[Kaldar's Helping Hand II].ID}) /casting "Kaldar's Helping Hand II"
 
+	/if (${Me.SpellReady["Crabtwoshoes Will Heal You Too!"]} && ${Me.CombatState.Equal[COMBAT]}) /casting "10737"
+	
+	/if (${Me.SpellReady["Crabtwoshoes Will Heal You Three!"]} && ${Me.CombatState.Equal[COMBAT]}) /casting "11934"
 
 /return
