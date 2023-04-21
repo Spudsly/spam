@@ -13,7 +13,7 @@ Sub Main
 
 |Timers, for items like the Wizards Thick Ether Skin below.
 
-
+	/if (!${Defined[epictimer]}) /declare epictimer timer global
 
 
 |-------------------------------------------------------------------
@@ -25,8 +25,6 @@ Sub Main
 	/if ((${Me.Inventory[Back].Name.Find[Shield of the Ages]} || ${Me.Inventory[Back].Name.Find[Mechidragon Scaled Armor]}) && (!${FindItem[Shield of the Ages].Timer} || !${FindItem[Mechidragon Scaled Armor].Timer}) && ${Me.Buff[Ancient Stonewall XII].Duration} < 100) {
         /nomodkey /itemnotify back rightmouseup
 	}
-	
-	/if (!${Me.Buff[Timeless: Haste].ID})  /casting "Wings of the Angel" item
 
 	/if (!${Me.Buff[Fastest Travel Clickie].ID}) /casting "Fastest Travel (Reward Item)" item
 
@@ -36,7 +34,10 @@ Sub Main
 
 	/if (!${Me.Buff[Insane Goblin Blessing].ID}) /casting "Insane Goblin Familiar (Halloween Reward)" item
 
-	/if (!${Me.Buff[Ancient: Deny Death I].ID}) /casting "Legendary Ring of the Ages X" item
+	/if (!${Me.Buff[Fastest Travel Clickie].ID} && ${FindItem[=Fastest Travel (Reward Item)].ID}) /casting "Fastest Travel (Reward Item)" item
+		
+	|/if (!${Me.Buff[Ancient: Deny Death I].ID} && !${FindItem[Legendary Ring of the Ages X].Timer} && ${FindItem[=Legendary Ring of the Ages X].ID}) /casting "Legendary Ring of the Ages X" item
+
 
 |-------------------------------------------------------------------
 
@@ -44,15 +45,15 @@ Sub Main
 
 
 
-	/if (!${Me.Buff[Tserrina's Enchanted Shadows].ID}) /itemnotify feet rightmouseup
+	/if (!${Me.Buff[Tserrina's Enchanted Shadows].ID} && ${Me.Inventory[feet].Name.Find[Sunderock Poison-Master's Thunderstruck Boots]}) /itemnotify feet rightmouseup
 
-	/if (!${Me.Buff[Masked Strength III].ID}) /itemnotify leftwrist rightmouseup
+	/if (!${Me.Buff[Masked Strength III].ID} && ${Me.Inventory[leftwrist].Name.Find[Sunderock Burning Sun Wristguards of Fortune]}) /itemnotify leftwrist rightmouseup
 	
-	/if (${Me.Inventory[Chest].Name.Find[Hunter's Mail of Eternity]} && !${FindItem[Hunter's Mail of Eternity].Timer}) {
+	/if (${Me.Inventory[Chest].Name.Find[Hunter's Mail of Eternity]} && !${FindItem[Hunter's Mail of Eternity].Timer} && ${Me.CombatState.Equal[COMBAT]}) {
         	/casting "Hunter's Mail of Eternity" item
 	}
 	
-	/if (!${Me.Buff[Secrets' Secret Ranger Secrets].ID}) /casting "9731"	
+	/if (!${Me.Buff[Secrets' Secret Ranger Secrets II].ID}) /casting "10741"	
 
 	/if (!${Me.Buff[Howl of the Huntmaster III].ID}) /casting "11937"	
 
@@ -62,9 +63,10 @@ Sub Main
 
 
 
-|	/If (${Cast.Ready[Ultimate Long Sword XII]}) {
-|		/itemnotify 13 rightmouseup
-|	}
+	/If (!${epictimer) {
+		/itemnotify 13 rightmouseup
+		/varset epictimer 85 s
+	}
 	
 |-------------------------------------------------------------------
 
