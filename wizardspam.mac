@@ -19,7 +19,11 @@ Sub Main
 
 	/if (!${Me.Buff[E'ci's Icy Familiar].ID}) /alt act 304
 
-	/if (!${Me.Buff[Painfully Gorgeous].ID}) /itemnotify 4 rightmouseup
+	/if (!${Me.Buff[Fastest Travel Clickie].ID} && ${FindItem[=Fastest Travel (Reward Item)].ID}) /casting "Fastest Travel (Reward Item)" item
+		
+	|/if (!${Me.Buff[Ancient: Deny Death I].ID} && !${FindItem[Legendary Ring of the Ages X].Timer} && ${FindItem[=Legendary Ring of the Ages X].ID}) /casting "Legendary Ring of the Ages X" item
+
+	/if (!${Me.Buff[Painfully Gorgeous].ID} && (${Me.Inventory[Leftear].Name.Find[Earring of the Mystic Ages Rank 50]} || ${Me.Inventory[Rightear].Name.Find[Earring of the Mystic Ages Rank 50]})) /casting "Earring of the Mystic Ages Rank 50" item
 	
 	/if (${Me.Buff[Thick Ether Skin].Duration} < 10 && !${ethtimer}) {
 		/itemnotify 13 rightmouseup
@@ -27,7 +31,7 @@ Sub Main
 	}
 
 	/if (${Me.Inventory[Chest].Name.Find[Basher's Robe of Clarity]} && !${FindItem[Basher's Robe of Clarity].Timer} && ${Me.CombatState.Equal[COMBAT]}) {
-        	/casting "Basher's Robe of Clarity" item
+        	/itemnotify chest rightmouseup
 	}
 
 	/If (${Cast.Ready[Idol of the Jailed]}) {
