@@ -50,15 +50,15 @@ Sub Main
 
 	/if (!${Me.Buff[Wisest Healer].ID} && ${Me.Inventory[ranged].Name.Find[Crystalline Idol of Healing Boon]}) /itemnotify 11 rightmouseup
 	
-	/if (!${Me.Buff[Champion].ID}) /casting "5417" 
+	/if (!${Me.Buff[Champion].ID} && ${Me.CombatState.Equal[COMBAT]}) /casting "5417" 
 
-	/if (!${Me.Song[Ancestral Grudge].ID}) /casting "10604" 
+	/if (!${Me.Song[Ancestral Grudge].ID} && ${Me.CombatState.Equal[COMBAT]}) /casting "10604" -targetid|${Spawn[=Rubette pc].ID}
 
-	/if (!${Me.Buff[Spirit of the Kraken III].ID}) /casting "11938" 
+	/if (!${Me.Buff[Spirit of the Kraken III].ID} && ${Me.CombatState.Equal[COMBAT]}) /casting "11938" -targetid|${Spawn[=Rubette pc].ID}
 	
 	/if (!${Me.Buff[Tserrina's Enchanted Shadows].ID}) /itemnotify feet rightmouseup
 
-	/if (!${Me.Buff[Masked Strength III].ID}) /itemnotify leftwrist rightmouseup
+	/if (!${Me.Buff[Masked Strength III].ID} && ${Me.Inventory[leftwrist].Name.Find[Sunderock Burning Sun Wristguards of Fortune]}) /itemnotify leftwrist rightmouseup
 
 
 |-------------------------------------------------------------------
