@@ -32,7 +32,7 @@ Sub Main
 
 
 	/if (${Me.Inventory[Chest].Name.Find[Rent's Tunic of Azeroth]} && !${FindItem[Rent's Tunic of Azeroth].Timer} && ${Me.CombatState.Equal[COMBAT]}) {
-        	/casting "Rent's Tunic of Azeroth" item
+        	/itemnotify chest rightmouseup
 	}
 	
 /return
