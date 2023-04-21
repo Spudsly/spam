@@ -65,7 +65,7 @@ Sub Main
 
 	/If (!${epictimer) {
 		/itemnotify 13 rightmouseup
-		/varset ethtimer 6 s
+		/varset epictimer 6 s
 	}
 	
 	/if (!${Me.Song[Cry Havoc].ID}) {
