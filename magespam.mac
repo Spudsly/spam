@@ -22,7 +22,7 @@ Sub Main
 	/if (!${Me.Buff[Painfully Gorgeous].ID} && (${Me.Inventory[Leftear].Name.Find[Earring of the Mystic Ages Rank 50]} || ${Me.Inventory[Rightear].Name.Find[Earring of the Mystic Ages Rank 50]})) /casting "Earring of the Mystic Ages Rank 50" item
 
 	/if (${Me.Inventory[Chest].Name.Find[Basher's Robe of Clarity]} && !${FindItem[Basher's Robe of Clarity].Timer} && ${Me.CombatState.Equal[COMBAT]}) {
-        	/casting "Basher's Robe of Clarity" item
+        	/itemnotify chest rightmouseup
 	}
 
 	/If (${Cast.Ready[Idol of the Jailed]}) {
