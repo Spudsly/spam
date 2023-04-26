@@ -1,15 +1,19 @@
 Sub Main
 	/if (!${Defined[ethtimer]}) /declare ethtimer timer global
-
+	
 	/if ((${Me.Inventory[Back].Name.Find[Shield of the Ages]} || ${Me.Inventory[Back].Name.Find[Mechidragon Scaled Armor]}) && (!${FindItem[Shield of the Ages].Timer} || !${FindItem[Mechidragon Scaled Armor].Timer}) && ${Me.Buff[Ancient Stonewall XII].Duration} < 100) {
         /nomodkey /itemnotify back rightmouseup
 	}
+	
+	/if (!${Me.Buff[Fastest Travel Clickie].ID} && ${FindItem[=Fastest Travel (Reward Item)].ID}) /itemnotify "Fastest Travel (Reward Item)" rightmouseup
 	
 	/if (${Me.Inventory[rightwrist].Name.Find[Royal Brushed Kote]} && !${FindItem[Royal Brushed Kote].Timer} && ${Me.Buff[Cloak of Anarchy].Duration} < 50) {
 	/nomodkey /itemnotify rightwrist rightmouseup
 	}
 
-	/if (!${Me.Buff[Insane Goblin Blessing].ID}) /casting "Insane Goblin Familiar (Halloween Reward)" item
+	/if (!${Me.Buff[Insane Goblin Blessing].ID}) /itemnotify "Insane Goblin Familiar (Halloween Reward)" rightmouseup
+
+	|/if (!${Me.Buff[Ancient: Deny Death I].ID} && !${FindItem[Legendary Ring of the Ages X].Timer) /itemnotify "Legendary Ring of the Ages X" rightmouseup
 
 	/if (!${Me.Buff[Tserrina's Enchanted Shadows].ID} && ${Me.Inventory[head].Name.Find[Sunderock Cowl of Vaxxol]}) /itemnotify head rightmouseup
 
@@ -19,11 +23,7 @@ Sub Main
 
 	/if (!${Me.Buff[E'ci's Icy Familiar].ID}) /alt act 304
 
-	/if (!${Me.Buff[Fastest Travel Clickie].ID} && ${FindItem[=Fastest Travel (Reward Item)].ID}) /casting "Fastest Travel (Reward Item)" item
-		
-	|/if (!${Me.Buff[Ancient: Deny Death I].ID} && !${FindItem[Legendary Ring of the Ages X].Timer} && ${FindItem[=Legendary Ring of the Ages X].ID}) /casting "Legendary Ring of the Ages X" item
-
-	/if (!${Me.Buff[Painfully Gorgeous].ID} && (${Me.Inventory[Leftear].Name.Find[Earring of the Mystic Ages Rank 50]} || ${Me.Inventory[Rightear].Name.Find[Earring of the Mystic Ages Rank 50]})) /casting "Earring of the Mystic Ages Rank 50" item
+	/if (!${Me.Buff[Painfully Gorgeous].ID} && (${Me.Inventory[Leftear].Name.Find[Earring of the Mystic Ages Rank 50]} || ${Me.Inventory[Rightear].Name.Find[Earring of the Mystic Ages Rank 50]})) /itemnotify "Earring of the Mystic Ages Rank 50" rightmouseup
 	
 	/if (${Me.Buff[Thick Ether Skin].Duration} < 10 && !${ethtimer}) {
 		/itemnotify 13 rightmouseup
