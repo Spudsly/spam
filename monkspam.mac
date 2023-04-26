@@ -20,7 +20,7 @@ Sub Main
 
 	/if (!${Me.Buff[Fastest Travel Clickie].ID} && ${FindItem[=Fastest Travel (Reward Item)].ID}) /itemnotify "Fastest Travel (Reward Item)" rightmouseup
 		
-	/if (!${Me.Buff[Ancient: Deny Death I].ID} && !${FindItem[Legendary Ring of the Ages X].Timer} && ${FindItem[=Legendary Ring of the Ages X].ID}) /itemnotify "Legendary Ring of the Ages X" rightmouseup
+	|/if (!${Me.Buff[Ancient: Deny Death I].ID} && !${FindItem[Legendary Ring of the Ages X].Timer} && ${FindItem[=Legendary Ring of the Ages X].ID}) /itemnotify "Legendary Ring of the Ages X" rightmouseup
 	
 	/if (!${Me.Song[Fists of Wu].ID}) /disc Fists of Wu
 	
