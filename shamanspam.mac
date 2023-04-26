@@ -20,21 +20,21 @@ Sub Main
 
 |Section for general buffs like Shield of the Ages, Wings of the Angel, Insane Goblin Familiar and so on. Basically buffs you use in general on all or most characters.
 
-
-
+	/if (!${Me.Buff[Timeless: Haste].ID}) && ${Me.Inventory[ammo].Name.Find[Wings of the Angel]})  /itemnotify ammo rightmouseup
+	
 	/if ((${Me.Inventory[Back].Name.Find[Shield of the Ages]} || ${Me.Inventory[Back].Name.Find[Mechidragon Scaled Armor]}) && (!${FindItem[Shield of the Ages].Timer} || !${FindItem[Mechidragon Scaled Armor].Timer}) && ${Me.Buff[Ancient Stonewall XII].Duration} < 100) {
         /nomodkey /itemnotify back rightmouseup
 	}
-
+	
+	/if (!${Me.Buff[Fastest Travel Clickie].ID} && ${FindItem[=Fastest Travel (Reward Item)].ID}) /itemnotify "Fastest Travel (Reward Item)" rightmouseup
+	
 	/if (${Me.Inventory[rightwrist].Name.Find[Royal Brushed Kote]} && !${FindItem[Royal Brushed Kote].Timer} && ${Me.Buff[Cloak of Anarchy].Duration} < 50) {
 	/nomodkey /itemnotify rightwrist rightmouseup
 	}
 
-	/if (!${Me.Buff[Insane Goblin Blessing].ID}) /casting "Insane Goblin Familiar (Halloween Reward)" item
+	/if (!${Me.Buff[Insane Goblin Blessing].ID}) /itemnotify "Insane Goblin Familiar (Halloween Reward)" rightmouseup
 
-	/if (!${Me.Buff[Fastest Travel Clickie].ID} && ${FindItem[=Fastest Travel (Reward Item)].ID}) /casting "Fastest Travel (Reward Item)" item
-		
-	|/if (!${Me.Buff[Ancient: Deny Death I].ID} && !${FindItem[Legendary Ring of the Ages X].Timer} && ${FindItem[=Legendary Ring of the Ages X].ID}) /casting "Legendary Ring of the Ages X" item
+	|/if (!${Me.Buff[Ancient: Deny Death I].ID} && !${FindItem[Legendary Ring of the Ages X].Timer) /itemnotify "Legendary Ring of the Ages X" rightmouseup
 
 |-------------------------------------------------------------------
 
@@ -42,10 +42,10 @@ Sub Main
 
 
 
-	/if (!${Me.Buff[Focus of Healing].ID}) /casting "Focus of Healing"
+	/if (!${Me.Buff[Focus of Healing].ID}) /cast "Focus of Healing"
 
 	/if (${Me.Inventory[Chest].Name.Find[Hunter's Mail of Eternity]} && !${FindItem[Hunter's Mail of Eternity].Timer} && ${Me.CombatState.Equal[COMBAT]}) {
-        	/casting "Hunter's Mail of Eternity" item
+        	/itemnotify chest rightmouseup
 	}
 
 	/if (!${Me.Buff[Wisest Healer].ID} && ${Me.Inventory[ranged].Name.Find[Crystalline Idol of Healing Boon]}) /itemnotify 11 rightmouseup
@@ -56,10 +56,9 @@ Sub Main
 
 	/if (!${Me.Buff[Spirit of the Kraken III].ID} && ${Me.CombatState.Equal[COMBAT]}) /casting "11938" -targetid|${Spawn[=Rubette pc].ID}
 	
-	/if (!${Me.Buff[Tserrina's Enchanted Shadows].ID}) /itemnotify feet rightmouseup
+	/if (!${Me.Buff[Tserrina's Enchanted Shadows].ID} && ${Me.Inventory[feet].Name.Find[Sunderock Poison-Master's Thunderstruck Boots]}) /itemnotify feet rightmouseup
 
-	/if (!${Me.Buff[Masked Strength III].ID} && ${Me.Inventory[leftwrist].Name.Find[Sunderock Burning Sun Wristguards of Fortune]}) /itemnotify leftwrist rightmouseup
-
+	/if (!${Me.Buff[Masked Strength III].ID} && (${Me.Inventory[leftwrist].Name.Find[Sunderock Burning Sun Wristguards of Fortune]} || ${Me.Inventory[rightwrist].Name.Find[Sunderock Burning Sun Wristguards of Fortune]}) /itemnotify "Sunderock Burning Sun Wristguards of Fortune" rightmouseup
 
 |-------------------------------------------------------------------
 
