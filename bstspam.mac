@@ -20,8 +20,6 @@ Sub Main
 
 |Section for general buffs like Shield of the Ages, Wings of the Angel, Insane Goblin Familiar and so on. Basically buffs you use in general on all or most characters.
 
-
-
 	/if ((${Me.Inventory[Back].Name.Find[Shield of the Ages]} || ${Me.Inventory[Back].Name.Find[Mechidragon Scaled Armor]}) && (!${FindItem[Shield of the Ages].Timer} || !${FindItem|[Mechidragon Scaled Armor].Timer}) && ${Me.Buff[Ancient Stonewall XII].Duration} < 100) {
         /nomodkey /itemnotify back rightmouseup
 	}
@@ -49,10 +47,10 @@ Sub Main
 
 	
 
-	/if (!${Me.Song[Auspice of the Hunter].ID}) /casting "Sunderock Boots of the Warboss" item
+	/if (!${Me.Song[Auspice of the Hunter].ID} && ${FindItem[=Sunderock Boots of the Warboss].ID}) /itemnotify feet rightmouseup
 
 	/if (${Me.Inventory[Chest].Name.Find[Rent's Tunic of Azeroth]} && !${FindItem[Rent's Tunic of Azeroth].Timer} && ${Me.CombatState.Equal[COMBAT]}) {
-        	/casting "Rent's Tunic of Azeroth" item
+        	/itemnotify chest rightmouseup
 	}
 
 |-------------------------------------------------------------------
@@ -63,7 +61,7 @@ Sub Main
 
 	/if (${Me.CombatAbilityReady["Bestial Fury Discipline"]} && ${Me.CombatState.Equal[COMBAT]}) /disc Bestial Fury Discipline
 
-	/if (${Me.SpellReady["Vicious Ice V"]}) /casting "11923"
+	/if (${Me.SpellReady["Vicious Ice V"]}) /cast "Vicious Ice V"
 
 |-------------------------------------------------------------------
 
