@@ -22,19 +22,25 @@ Sub Main
 
 
 
-	/if ((${Me.Inventory[Back].Name.Find[Shield of the Ages]} || ${Me.Inventory[Back].Name.Find[Mechidragon Scaled Armor]}) && (!${FindItem[Shield of the Ages].Timer} || !${FindItem[Mechidragon Scaled Armor].Timer}) && ${Me.Buff[Ancient Stonewall XII].Duration} < 100) {
+	/if ((${Me.Inventory[Back].Name.Find[Shield of the Ages]} || ${Me.Inventory[Back].Name.Find[Mechidragon Scaled Armor]}) && (!${FindItem[Shield of the Ages].Timer} || !${FindItem|[Mechidragon Scaled Armor].Timer}) && ${Me.Buff[Ancient Stonewall XII].Duration} < 100) {
         /nomodkey /itemnotify back rightmouseup
 	}
 
 	/if (${Me.Inventory[rightwrist].Name.Find[Royal Brushed Kote]} && !${FindItem[Royal Brushed Kote].Timer} && ${Me.Buff[Cloak of Anarchy].Duration} < 50) {
 	/nomodkey /itemnotify rightwrist rightmouseup
 	}
-
-	/if (!${Me.Buff[Insane Goblin Blessing].ID}) /casting "Insane Goblin Familiar (Halloween Reward)" item
-
-	/if (!${Me.Buff[Fastest Travel Clickie].ID} && ${FindItem[=Fastest Travel (Reward Item)].ID}) /casting "Fastest Travel (Reward Item)" item
 		
-	|/if (!${Me.Buff[Ancient: Deny Death I].ID} && !${FindItem[Legendary Ring of the Ages X].Timer} && ${FindItem[=Legendary Ring of the Ages X].ID}) /casting "Legendary Ring of the Ages X" item
+	/if (!${Me.Buff[Timeless: Haste].ID})  /itemnotify ammo rightmouseup
+	
+	/if (!${Me.Buff[Fastest Travel Clickie].ID} && ${FindItem[=Fastest Travel (Reward Item)].ID}) /itemnotify in pack${Int[${Math.Calc[${FindItem[Fastest Travel (Reward Item)].ItemSlot}-22]}]} ${Int[${Math.Calc[${FindItem[Fastest Travel (Reward Item)].ItemSlot2}+1]}]} rightmouseup
+	
+	/if (${Me.Inventory[rightwrist].Name.Find[Royal Brushed Kote]} && !${FindItem[Royal Brushed Kote].Timer} && ${Me.Buff[Cloak of Anarchy].Duration} < 50) {
+	/nomodkey /itemnotify rightwrist rightmouseup
+	}
+
+	/if (!${Me.Buff[Insane Goblin Blessing].ID}) /itemnotify in pack${Int[${Math.Calc[${FindItem[Insane Goblin Familiar (Halloween Reward)].ItemSlot}-22]}]} ${Int[${Math.Calc[${FindItem[Insane Goblin Familiar (Halloween Reward)].ItemSlot2}+1]}]} rightmouseup
+
+	/if (!${Me.Buff[Ancient: Deny Death I].ID} && !${FindItem[Legendary Ring of the Ages X].Timer} && ${FindItem[=Legendary Ring of the Ages X].ID}) /itemnotify in pack${Int[${Math.Calc[${FindItem[Legendary Ring of the Ages X].ItemSlot}-22]}]} ${Int[${Math.Calc[${FindItem[Legendary Ring of the Ages X].ItemSlot2}+1]}]} rightmouseup
 
 
 |-------------------------------------------------------------------
@@ -43,19 +49,25 @@ Sub Main
 
 
 
-	/if (!${Me.Buff[Focus of Healing].ID}) /casting "Focus of Healing"
+	/if (!${Me.Buff[Focus of Healing].ID}) /cast "Focus of Healing"
 
-	/if (!${Me.Buff[Form of the Werewolf].ID}) /casting "Form of the Werewolf"
+	|/if (!${Me.Buff[Form of the Werewolf].ID}) /cast "Form of the Werewolf"
 
-	/if (!${Me.Song[Auspice of the Hunter].ID}) /casting "Sunderock Boots of the Warboss" item
+	/if (!${Me.Song[Auspice of the Hunter].ID} && ${Me.Inventory[feet].Name.Find[Sunderock Boots of the Warboss]}) /itemnotify feet rightmouseup
 
 	/if (${Me.Inventory[Chest].Name.Find[Rent's Tunic of Azeroth]} && !${FindItem[Rent's Tunic of Azeroth].Timer} && ${Me.CombatState.Equal[COMBAT]}) {
-        	/casting "Rent's Tunic of Azeroth" item
+        	/itemnotify chest rightmouseup
 	}
 
-	/if (!${Me.Buff[Wisest Healer].ID} && ${Me.Inventory[ranged].Name.Find[Crystalline Idol of Healing Boon]}) /casting "Crystalline Idol of Healing Boon" item
+	/if (!${Me.Buff[Wisest Healer].ID} && ${Me.Inventory[ranged].Name.Find[Crystalline Idol of Healing Boon]}) /itemnotify ranged rightmouseup
 
-	/if (!${Me.Buff[Painfully Gorgeous].ID} && (${Me.Inventory[Leftear].Name.Find[Earring of the Mystic Ages Rank 50]} || ${Me.Inventory[Rightear].Name.Find[Earring of the Mystic Ages Rank 50]})) /casting "Earring of the Mystic Ages Rank 50" item
+	/if (!${Me.Buff[Painfully Gorgeous].ID} && (${Me.Inventory[Leftear].Name.Find[Earring of the Mystic Ages Rank 50]} || ${Me.Inventory[Rightear].Name.Find[Earring of the Mystic Ages Rank 50]})) {
+		/if ${Me.Inventory[Leftear].Name.Find[Earring of the Mystic Ages Rank 50]} {
+			/itemnotify leftear rightmouseup
+		} else {
+			/itemnotify rightear rightmouseup
+		}
+	}
 
 |-------------------------------------------------------------------
 
@@ -65,7 +77,7 @@ Sub Main
 
 
 
-	|/if (${Me.SpellReady["Fountain of Karana"]}) /casting "33203"
+	|/if (${Me.SpellReady["Fountain of Karana"]}) /cast "Fountain of Karana"
 
 
 	/If (${Cast.Ready[Idol of the Jailed]} && ${Me.Inventory[ranged].Name.Find[Idol of the Jailed]}) {
