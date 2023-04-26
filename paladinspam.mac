@@ -1,26 +1,36 @@
 Sub Main
+	/if (!${Me.Buff[Timeless: Haste].ID})  /itemnotify ammo rightmouseup
+	
 	/if ((${Me.Inventory[Back].Name.Find[Shield of the Ages]} || ${Me.Inventory[Back].Name.Find[Mechidragon Scaled Armor]}) && (!${FindItem[Shield of the Ages].Timer} || !${FindItem[Mechidragon Scaled Armor].Timer}) && ${Me.Buff[Ancient Stonewall XII].Duration} < 100) {
         /nomodkey /itemnotify back rightmouseup
 	}
 
-	/if (!${Me.Buff[Insane Goblin Blessing].ID}) /itemnotify 2 rightmouseup
-
-	/if (!${Me.Buff[Fastest Travel Clickie].ID} && ${FindItem[=Fastest Travel (Reward Item)].ID}) /casting "Fastest Travel (Reward Item)" item
-		
-	|/if (!${Me.Buff[Ancient: Deny Death I].ID} && !${FindItem[Legendary Ring of the Ages X].Timer} && ${FindItem[=Legendary Ring of the Ages X].ID}) /casting "Legendary Ring of the Ages X" item
-
-	/if (!${Me.Song[Yaulp XII].ID}) /casting "Yaulp XII"
-
-	/if (!${Me.Aura[Holy Aura].ID}) /casting "Holy Aura"
-
-	/if (!${Me.Buff[Focus of Healing].ID}) /casting "Focus of Healing"
-
-	/if (!${Me.Buff[Gift of the Avenger II].ID}) /casting "Gift of the Avenger II"
-
-	/if (!${Me.Buff[Kaldar's Helping Hand II].ID}) /casting "Kaldar's Helping Hand II"
-
-	/if (${Me.SpellReady["Crabtwoshoes Will Heal You Too!"]} && ${Me.CombatState.Equal[COMBAT]}) /casting "10737"
+	/if (!${Me.Buff[Timeless: Haste].ID})  /itemnotify ammo rightmouseup
 	
-	/if (${Me.SpellReady["Crabtwoshoes Will Heal You Three!"]} && ${Me.CombatState.Equal[COMBAT]}) /casting "11934"
+	/if (!${Me.Buff[Fastest Travel Clickie].ID}) /itemnotify "Fastest Travel (Reward Item)" rightmouseup
+	
+	/if (${Me.Inventory[rightwrist].Name.Find[Royal Brushed Kote]} && !${FindItem[Royal Brushed Kote].Timer} && ${Me.Buff[Cloak of Anarchy].Duration} < 50) {
+	/nomodkey /itemnotify rightwrist rightmouseup
+	}
+
+	/if (!${Me.Buff[Insane Goblin Blessing].ID}) /itemnotify "Insane Goblin Familiar (Halloween Reward)" rightmouseup
+
+	/if (!${Me.Buff[Ancient: Deny Death I].ID}) /itemnotify "Legendary Ring of the Ages X" rightmouseup
+	/if (${Me.Inventory[Chest].Name.Find[Basher's Robe of Clarity]} && !${FindItem[Basher's Robe of Clarity].Timer} && ${Me.CombatState.Equal[COMBAT]}) {
+        	/itemnotify chest rightmouseup
+	}
+	/if (!${Me.Song[Yaulp XII].ID}) /cast "Yaulp XII"
+
+	/if (!${Me.Aura[Holy Aura].ID}) /cast "Holy Aura"
+
+	/if (!${Me.Buff[Focus of Healing].ID}) /cast "Focus of Healing"
+
+	/if (!${Me.Buff[Gift of the Avenger II].ID}) /cast "Gift of the Avenger II"
+
+	/if (!${Me.Buff[Kaldar's Helping Hand II].ID}) /cast "Kaldar's Helping Hand II"
+
+	/if (${Me.SpellReady["Crabtwoshoes Will Heal You Too!"]} && ${Me.CombatState.Equal[COMBAT]}) /cast "Crabtwoshoes Will Heal You Too!"
+	
+	/if (${Me.SpellReady["Crabtwoshoes Will Heal You Three!"]} && ${Me.CombatState.Equal[COMBAT]}) /cast "Crabtwoshoes Will Heal You Three!"
 
 /return
