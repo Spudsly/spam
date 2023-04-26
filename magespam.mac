@@ -5,9 +5,9 @@ Sub Main
         /nomodkey /itemnotify back rightmouseup
 	}
 
-	/if (!${Me.Buff[Timeless: Haste].ID})  /itemnotify ammo rightmouseup
+	/if (!${Me.Buff[Timeless: Haste].ID} && ${Me.Inventory[ammo].Name.Find[Wings of the Angel]})  /itemnotify ammo rightmouseup
 	
-	/if (!${Me.Buff[Fastest Travel Clickie].ID}) /itemnotify "Fastest Travel (Reward Item)" rightmouseup
+	/if (!${Me.Buff[Fastest Travel Clickie].ID} && ${FindItem[=Fastest Travel (Reward Item)].ID}) /itemnotify "Fastest Travel (Reward Item)" rightmouseup
 	
 	/if (${Me.Inventory[rightwrist].Name.Find[Royal Brushed Kote]} && !${FindItem[Royal Brushed Kote].Timer} && ${Me.Buff[Cloak of Anarchy].Duration} < 50) {
 	/nomodkey /itemnotify rightwrist rightmouseup
