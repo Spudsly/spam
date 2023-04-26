@@ -42,7 +42,7 @@ Sub Main
 
 	
 
-	/if (!${Me.Song[Auspice of the Hunter].ID} && ${FindItem[=Sunderock Boots of the Warboss].ID}) /itemnotify feet rightmouseup
+	/if (!${Me.Song[Auspice of the Hunter].ID} && ${Me.Inventory[feet].Name.Find[Sunderock Boots of the Warboss]}) /itemnotify feet rightmouseup
 
 	/if (${Me.Inventory[Chest].Name.Find[Rent's Tunic of Azeroth]} && !${FindItem[Rent's Tunic of Azeroth].Timer} && ${Me.CombatState.Equal[COMBAT]}) {
         	/itemnotify chest rightmouseup
