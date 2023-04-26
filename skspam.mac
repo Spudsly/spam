@@ -19,7 +19,7 @@ Sub Main
 
 |Section for general buffs like Shield of the Ages, Wings of the Angel, Insane Goblin Familiar and so on. Basically buffs you use in general on all or most characters.
 
-	/if (!${Me.Buff[Timeless: Haste].ID}) && ${Me.Inventory[ammo].Name.Find[Wings of the Angel]})  /itemnotify ammo rightmouseup
+	/if (!${Me.Buff[Timeless: Haste].ID}) && ${Me.Inventory[ammo].Name.Find[Wings of the Angel]} && !${FindItem[Wings of the Angel].Timer})  /itemnotify ammo rightmouseup
 	
 	/if ((${Me.Inventory[Back].Name.Find[Shield of the Ages]} || ${Me.Inventory[Back].Name.Find[Mechidragon Scaled Armor]}) && (!${FindItem[Shield of the Ages].Timer} || !${FindItem[Mechidragon Scaled Armor].Timer}) && ${Me.Buff[Ancient Stonewall XII].Duration} < 100) {
         /nomodkey /itemnotify back rightmouseup
