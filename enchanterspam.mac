@@ -1,6 +1,4 @@
 Sub Main
-	/if (!${Me.Buff[Timeless: Haste].ID})  /itemnotify ammo rightmouseup
-	
 	/if ((${Me.Inventory[Back].Name.Find[Shield of the Ages]} || ${Me.Inventory[Back].Name.Find[Mechidragon Scaled Armor]}) && (!${FindItem[Shield of the Ages].Timer} || !${FindItem[Mechidragon Scaled Armor].Timer}) && ${Me.Buff[Ancient Stonewall XII].Duration} < 100) {
         /nomodkey /itemnotify back rightmouseup
 	}
