@@ -35,7 +35,7 @@ Sub Main
 
 	/if (!${Me.Buff[Insane Goblin Blessing].ID}) /itemnotify "Insane Goblin Familiar (Halloween Reward)" rightmouseup
 
-	|/if (!${Me.Buff[Ancient: Deny Death I].ID}) /itemnotify "Legendary Ring of the Ages X" rightmouseup
+	|/if (!${Me.Buff[Ancient: Deny Death I].ID} && !${FindItem[Legendary Ring of the Ages X].Timer) /itemnotify "Legendary Ring of the Ages X" rightmouseup
 
 
 |-------------------------------------------------------------------
