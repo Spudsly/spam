@@ -33,7 +33,7 @@ Sub Main
         	/itemnotify chest rightmouseup
 	}
 	
-	/if (!${Me.Buff[Masked Strength].ID} && ${Me.Inventory[leftwrist].Name.Find[Sunderock Burning Sun Wristguards of Fortune]}) /itemnotify leftwrist rightmouseup
+	/if (!${Me.Buff[Masked Strength III].ID} && (${Me.Inventory[leftwrist].Name.Find[Sunderock Burning Sun Wristguards of Fortune]} || ${Me.Inventory[rightwrist].Name.Find[Sunderock Burning Sun Wristguards of Fortune]}) /itemnotify "Sunderock Burning Sun Wristguards of Fortune" rightmouseup
 	
 	
 /return
