@@ -38,10 +38,8 @@ Sub Main
 
 	/if (!${Me.Buff[Insane Goblin Blessing].ID}) /itemnotify "Insane Goblin Familiar (Halloween Reward)" rightmouseup
 
-	/if (!${Me.Buff[Ancient: Deny Death I].ID}) /itemnotify "Legendary Ring of the Ages X" rightmouseup
-	/if (${Me.Inventory[Chest].Name.Find[Basher's Robe of Clarity]} && !${FindItem[Basher's Robe of Clarity].Timer} && ${Me.CombatState.Equal[COMBAT]}) {
-        	/itemnotify chest rightmouseup
-	}
+	|/if (!${Me.Buff[Ancient: Deny Death I].ID}) /itemnotify "Legendary Ring of the Ages X" rightmouseup
+
 
 |-------------------------------------------------------------------
 
@@ -57,9 +55,9 @@ Sub Main
         	/casting "Hunter's Mail of Eternity" item
 	}
 	
-	/if (!${Me.Buff[Secrets' Secret Ranger Secrets II].ID}) /casting "10741"	
+	/if (!${Me.Buff[Secrets' Secret Ranger Secrets II].ID}) /cast Secrets' "Secret Ranger Secrets II"
 
-	/if (!${Me.Buff[Howl of the Huntmaster III].ID}) /casting "11937"	
+	/if (!${Me.Buff[Howl of the Huntmaster III].ID}) /cast "Howl of the Huntmaster III"
 
 |-------------------------------------------------------------------
 
