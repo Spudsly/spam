@@ -1,15 +1,17 @@
 Sub Main
+	/if (${Me.Buff[Warrior's Defense VIII].Duration} < 100) /itemnotify 13 rightmouseup
+
+	/if (!${Me.Buff[Timeless: Haste].ID}) && ${Me.Inventory[ammo].Name.Find[Wings of the Angel]})  /itemnotify ammo rightmouseup
+	
 	/if ((${Me.Inventory[Back].Name.Find[Shield of the Ages]} || ${Me.Inventory[Back].Name.Find[Mechidragon Scaled Armor]}) && (!${FindItem[Shield of the Ages].Timer} || !${FindItem[Mechidragon Scaled Armor].Timer}) && ${Me.Buff[Ancient Stonewall XII].Duration} < 100) {
         /nomodkey /itemnotify back rightmouseup
 	}
+	
+	/if (!${Me.Buff[Fastest Travel Clickie].ID} && ${FindItem[=Fastest Travel (Reward Item)].ID}) /itemnotify "Fastest Travel (Reward Item)" rightmouseup
 
-	/if (${Me.Buff[Warrior's Defense VIII].Duration} < 100) /itemnotify 13 rightmouseup
+	/if (!${Me.Buff[Insane Goblin Blessing].ID}) /itemnotify 2 rightmouseup
 
-	/if (!${Me.Buff[Insane Goblin Blessing].ID} || (${Me.CombatState.NotEqual[COMBAT]} && !${Bool[${Pet.ID}]})) /itemnotify 2 rightmouseup
-
-	/if (!${Me.Buff[Fastest Travel Clickie].ID} && ${FindItem[=Fastest Travel (Reward Item)].ID}) /casting "Fastest Travel (Reward Item)" item
-		
-	|/if (!${Me.Buff[Ancient: Deny Death I].ID} && !${FindItem[Legendary Ring of the Ages X].Timer} && ${FindItem[=Legendary Ring of the Ages X].ID}) /casting "Legendary Ring of the Ages X" item
+	|/if (!${Me.Buff[Ancient: Deny Death I].ID} && !${FindItem[Legendary Ring of the Ages X].Timer) /itemnotify "Legendary Ring of the Ages X" rightmouseup
 
 	/if (${Me.AbilityReady[Taunt]}) /doability Taunt
 
