@@ -25,7 +25,7 @@ Sub Main
 	
 
 	/if (!${Me.Buff[Painfully Gorgeous].ID} && (${Me.Inventory[Leftear].Name.Find[Earring of the Mystic Ages Rank 50]} || ${Me.Inventory[Rightear].Name.Find[Earring of the Mystic Ages Rank 50]})) {
-		/if ${Me.Inventory[Leftear].Name.Find[Earring of the Mystic Ages Rank 50]} {
+		/if (${Me.Inventory[Leftear].Name.Find[Earring of the Mystic Ages Rank 50]}) {
 			/itemnotify leftear rightmouseup
 		} else {
 			/itemnotify rightear rightmouseup
