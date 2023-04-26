@@ -24,7 +24,7 @@ Sub Main
         /nomodkey /itemnotify back rightmouseup
 	}
 
-	/if (!${Me.Buff[Timeless: Haste].ID} && ${Me.Inventory[ammo].Name.Find[Wings of the Angel]})  /itemnotify ammo rightmouseup
+	/if (!${Me.Buff[Timeless: Haste].ID} && ${Me.Inventory[ammo].Name.Find[Wings of the Angel]} && !${FindItem[Wings of the Angel].Timer})  /itemnotify ammo rightmouseup
 	
 	/if (!${Me.Buff[Fastest Travel Clickie].ID} && ${FindItem[=Fastest Travel (Reward Item)].ID}) /itemnotify "Fastest Travel (Reward Item)" rightmouseup
 	
