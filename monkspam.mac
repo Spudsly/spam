@@ -12,15 +12,15 @@ Sub Main
 	/nomodkey /itemnotify rightwrist rightmouseup
 	}
 
-	/if (!${Me.Buff[Insane Goblin Blessing].ID}) /casting "Insane Goblin Familiar (Halloween Reward)" item
+	/if (!${Me.Buff[Insane Goblin Blessing].ID}) /itemnotify "Insane Goblin Familiar (Halloween Reward)" rightmouseup
 
 	/if (${FindItem[Crab Fu: The Way of the Quickening Fists].ID} && !${Me.Buff[Crab Fu: The Way of the Quickening Fists].ID}) {
 		/itemnotify  "Crab Fu: The Way of the Quickening Fists" rightmouseup
 	}
 
-	/if (!${Me.Buff[Fastest Travel Clickie].ID} && ${FindItem[=Fastest Travel (Reward Item)].ID}) /casting "Fastest Travel (Reward Item)" item
+	/if (!${Me.Buff[Fastest Travel Clickie].ID} && ${FindItem[=Fastest Travel (Reward Item)].ID}) /itemnotify "Fastest Travel (Reward Item)" rightmouseup
 		
-	|/if (!${Me.Buff[Ancient: Deny Death I].ID} && !${FindItem[Legendary Ring of the Ages X].Timer} && ${FindItem[=Legendary Ring of the Ages X].ID}) /casting "Legendary Ring of the Ages X" item
+	|/if (!${Me.Buff[Ancient: Deny Death I].ID} && !${FindItem[Legendary Ring of the Ages X].Timer} && ${FindItem[=Legendary Ring of the Ages X].ID}) /itemnotify "Legendary Ring of the Ages X" rightmouseup
 	
 	/if (!${Me.Song[Fists of Wu].ID}) /disc Fists of Wu
 	
