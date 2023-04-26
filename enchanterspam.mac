@@ -1,36 +1,27 @@
 Sub Main
-	/if ((${Me.Inventory[Back].Name.Find[Shield of the Ages]} || ${Me.Inventory[Back].Name.Find[Mechidragon Scaled Armor]}) && (!${FindItem[Shield of the Ages].Timer} || !${FindItem|[Mechidragon Scaled Armor].Timer}) && ${Me.Buff[Ancient Stonewall XII].Duration} < 100) {
+	/if (!${Me.Buff[Timeless: Haste].ID})  /itemnotify ammo rightmouseup
+	
+	/if ((${Me.Inventory[Back].Name.Find[Shield of the Ages]} || ${Me.Inventory[Back].Name.Find[Mechidragon Scaled Armor]}) && (!${FindItem[Shield of the Ages].Timer} || !${FindItem[Mechidragon Scaled Armor].Timer}) && ${Me.Buff[Ancient Stonewall XII].Duration} < 100) {
         /nomodkey /itemnotify back rightmouseup
 	}
 
-	/if (${Me.Inventory[rightwrist].Name.Find[Royal Brushed Kote]} && !${FindItem[Royal Brushed Kote].Timer} && ${Me.Buff[Cloak of Anarchy].Duration} < 50) {
-	/nomodkey /itemnotify rightwrist rightmouseup
-	}
-		
 	/if (!${Me.Buff[Timeless: Haste].ID})  /itemnotify ammo rightmouseup
 	
-	/if (!${Me.Buff[Fastest Travel Clickie].ID} && ${FindItem[=Fastest Travel (Reward Item)].ID}) /itemnotify in pack${Int[${Math.Calc[${FindItem[Fastest Travel (Reward Item)].ItemSlot}-22]}]} ${Int[${Math.Calc[${FindItem[Fastest Travel (Reward Item)].ItemSlot2}+1]}]} rightmouseup
+	/if (!${Me.Buff[Fastest Travel Clickie].ID}) /itemnotify "Fastest Travel (Reward Item)" rightmouseup
 	
 	/if (${Me.Inventory[rightwrist].Name.Find[Royal Brushed Kote]} && !${FindItem[Royal Brushed Kote].Timer} && ${Me.Buff[Cloak of Anarchy].Duration} < 50) {
 	/nomodkey /itemnotify rightwrist rightmouseup
 	}
 
-	/if (!${Me.Buff[Insane Goblin Blessing].ID}) /itemnotify in pack${Int[${Math.Calc[${FindItem[Insane Goblin Familiar (Halloween Reward)].ItemSlot}-22]}]} ${Int[${Math.Calc[${FindItem[Insane Goblin Familiar (Halloween Reward)].ItemSlot2}+1]}]} rightmouseup
+	/if (!${Me.Buff[Insane Goblin Blessing].ID}) /itemnotify "Insane Goblin Familiar (Halloween Reward)" rightmouseup
 
-	/if (!${Me.Buff[Ancient: Deny Death I].ID} && !${FindItem[Legendary Ring of the Ages X].Timer} && ${FindItem[=Legendary Ring of the Ages X].ID}) /itemnotify in pack${Int[${Math.Calc[${FindItem[Legendary Ring of the Ages X].ItemSlot}-22]}]} ${Int[${Math.Calc[${FindItem[Legendary Ring of the Ages X].ItemSlot2}+1]}]} rightmouseup
-
+	/if (!${Me.Buff[Ancient: Deny Death I].ID}) /itemnotify "Legendary Ring of the Ages X" rightmouseup
 	/if (${Me.Inventory[Chest].Name.Find[Basher's Robe of Clarity]} && !${FindItem[Basher's Robe of Clarity].Timer} && ${Me.CombatState.Equal[COMBAT]}) {
         	/itemnotify chest rightmouseup
 	}
 	
+	/if (!${Me.Buff[Painfully Gorgeous].ID} && (${Me.Inventory[Leftear].Name.Find[Earring of the Mystic Ages Rank 50]} || ${Me.Inventory[Rightear].Name.Find[Earring of the Mystic Ages Rank 50]})) /itemnotify "Earring of the Mystic Ages Rank 50" rightmouseup
 
-	/if (!${Me.Buff[Painfully Gorgeous].ID} && (${Me.Inventory[Leftear].Name.Find[Earring of the Mystic Ages Rank 50]} || ${Me.Inventory[Rightear].Name.Find[Earring of the Mystic Ages Rank 50]})) {
-		/if (${Me.Inventory[Leftear].Name.Find[Earring of the Mystic Ages Rank 50]}) {
-			/itemnotify leftear rightmouseup
-		} else {
-			/itemnotify rightear rightmouseup
-		}
-	}
 	
 	/if (!${Me.Buff[Tserrina's Enchanted Shadows].ID} && ${Me.Inventory[head].Name.Find[Sunderock Cowl of Vaxxol]}) /itemnotify head rightmouseup
 	
