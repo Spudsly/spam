@@ -41,22 +41,22 @@ Sub Main
 
 |Section for class specific buffs.
 
-	/if (${Me.Inventory[mainhand].Name.Find[Ultimate Long Sword XII]} && !${FindItem[Ultimate Long Sword XII].Timer} && ${Me.Song[One Man Band IX].Duration} < 10) {
+	/if (!${epictimer} && ${Me.CombatState.Equal[COMBAT]}) {
+	/twist stop
 	/nomodkey /itemnotify mainhand rightmouseup
+	/varset epictimer 62 s
 	}
 
 |-------------------------------------------------------------------
 
 |Section for class specific combat routines. If there are certain abilities or items with abilities that you don't have, you can comment them off by using the | symbol in front of the code.
 
-	/if (!${epictimer} && ${Me.CombatState.Equal[COMBAT]}) {
-	/twist stop
-	/nomodkey /itemnotify mainhand rightmouseup
-	}
 	
 	/if (${Twist.Twisting} && !${Me.CombatState.Equal[COMBAT]}) /twist stop
 	
-	/if (!${Twist.Twisting} && ${Me.CombatState.Equal[COMBAT]}) /twist 1 2 3
+	/if (!${Twist.Twisting} && ${Me.CombatState.Equal[COMBAT]}) {
+		/twist 1 2 3
+	}
 
 	/if (${Me.CombatAbilityReady["Deftdance Discipline"]} && ${Me.CombatState.Equal[COMBAT]}) /disc Deftdance Discipline
 	
