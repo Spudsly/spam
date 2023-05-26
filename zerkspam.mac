@@ -48,7 +48,9 @@ Sub Main
 		/itemnotify  "Over Raided Zerker Haste" rightmouseup
 	}
 
-	/if (!${Me.Buff[Tserrina's Enchanted Shadows].ID} && ${Me.Inventory[feet].Name.Find[Sunderock Poison-Master's Thunderstruck Boots]}) /itemnotify feet rightmouseup
+	/if (!${Me.Buff[Tserrina's Enchanted Shadows].ID} && ${Me.Inventory[Feet].Name.Find[Sunderock Poison-Master's Thunderstruck Boots]} && !${FindItem[Sunderock Poison-Master's Thunderstruck Boots].Timer})  {
+            /itemnotify feet rightmouseup
+   	}
 
 	/if (!${Me.Buff[Masked Strength III].ID} && ${Me.Inventory[leftwrist].Name.Find[Sunderock Burning Sun Wristguards of Fortune]}) /itemnotify leftwrist rightmouseup
 	
