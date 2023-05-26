@@ -56,7 +56,9 @@ Sub Main
 
 	/if (!${Me.Buff[Spirit of the Kraken III].ID} && ${Me.CombatState.Equal[COMBAT]}) /casting "11938" -targetid|${Spawn[=Rubette pc].ID}
 	
-	/if (!${Me.Buff[Tserrina's Enchanted Shadows].ID} && ${Me.Inventory[feet].Name.Find[Sunderock Poison-Master's Thunderstruck Boots]}) /itemnotify feet rightmouseup
+	/if (!${Me.Buff[Tserrina's Enchanted Shadows].ID} && ${Me.Inventory[Feet].Name.Find[Sunderock Poison-Master's Thunderstruck Boots]} && !${FindItem[Sunderock Poison-Master's Thunderstruck Boots].Timer})  {
+            /itemnotify feet rightmouseup
+   	}
 
 	/if (!${Me.Buff[Masked Strength III].ID} && (${Me.Inventory[leftwrist].Name.Find[Sunderock Burning Sun Wristguards of Fortune]} || ${Me.Inventory[rightwrist].Name.Find[Sunderock Burning Sun Wristguards of Fortune]}) /itemnotify "Sunderock Burning Sun Wristguards of Fortune" rightmouseup
 
