@@ -52,7 +52,9 @@ Sub Main
 	}
 
 
-	/if (!${Me.Buff[Tserrina's Enchanted Shadows].ID} && ${Me.Inventory[head].Name.Find[Sunderock Cowl of Vaxxol]}) /itemnotify head rightmouseup
+	/if (!${Me.Buff[Tserrina's Enchanted Shadows].ID} &&${Me.Inventory[Head].Name.Find[Sunderock Cowl of Vaxxol]} && !${FindItem[Sunderock Cowl of Vaxxol].Timer})  {
+            /itemnotify head rightmouseup
+	}	
 
 |-------------------------------------------------------------------
 
