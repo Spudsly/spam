@@ -12,7 +12,11 @@ Sub Main
 	/if (${Me.Inventory[rightwrist].Name.Find[Royal Brushed Kote]} && !${FindItem[Royal Brushed Kote].Timer} && ${Me.Buff[Cloak of Anarchy].Duration} < 50) {
 	/nomodkey /itemnotify rightwrist rightmouseup
 	}
-
+	
+	/if (!${Me.Buff[Tserrina's Enchanted Shadows].ID} &&${Me.Inventory[Head].Name.Find[Sunderock Cowl of Vaxxol]} && !${FindItem[Sunderock Cowl of Vaxxol].Timer})  {
+            /itemnotify head rightmouseup
+	}	
+	
 	/if (!${Me.Buff[Insane Goblin Blessing].ID}) /itemnotify "Insane Goblin Familiar (Halloween Reward)" rightmouseup
 
 	|/if (!${Me.Buff[Ancient: Deny Death I].ID} && !${FindItem[Legendary Ring of the Ages X].Timer) /itemnotify "Legendary Ring of the Ages X" rightmouseup
