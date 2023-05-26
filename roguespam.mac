@@ -9,7 +9,9 @@ Sub Main
 
 	/if (!${Me.Buff[Insane Goblin Blessing].ID}) /casting "Insane Goblin Familiar (Halloween Reward)" item
 
-	/if (!${Me.Buff[Tserrina's Enchanted Shadows].ID} && ${Me.Inventory[feet].Name.Find[Sunderock Poison-Master's Thunderstruck Boots]}) /itemnotify feet rightmouseup
+	/if (!${Me.Buff[Tserrina's Enchanted Shadows].ID} && ${Me.Inventory[Feet].Name.Find[Sunderock Poison-Master's Thunderstruck Boots]} && !${FindItem[Sunderock Poison-Master's Thunderstruck Boots].Timer})  {
+            /itemnotify feet rightmouseup
+   	}
 
 	/if (${Me.AbilityReady[Backstab]}) /doability Backstab
 
