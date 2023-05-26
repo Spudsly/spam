@@ -15,7 +15,9 @@ Sub Main
 
 	|/if (!${Me.Buff[Ancient: Deny Death I].ID} && !${FindItem[Legendary Ring of the Ages X].Timer) /itemnotify "Legendary Ring of the Ages X" rightmouseup
 
-	/if (!${Me.Buff[Tserrina's Enchanted Shadows].ID} && ${Me.Inventory[head].Name.Find[Sunderock Cowl of Vaxxol]}) /itemnotify head rightmouseup
+	/if (!${Me.Buff[Tserrina's Enchanted Shadows].ID} &&${Me.Inventory[Head].Name.Find[Sunderock Cowl of Vaxxol]} && !${FindItem[Sunderock Cowl of Vaxxol].Timer})  {
+            /itemnotify head rightmouseup
+	}	
 
 	/if (!${Me.Buff[Timeless: Haste].ID} && ${Me.Inventory[Ammo].Name.Find[Wings of the Angel]} && !${FindItem[Wings of the Angel].Timer}) /itemnotify ammo rightmouseup
 	
