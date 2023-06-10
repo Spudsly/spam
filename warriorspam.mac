@@ -17,12 +17,12 @@ Sub Main
 
 	/if (!${Me.Song[Commanding Voice].ID}) /discipline Commanding Voice
 	
-	/if (!${FindItem[Bashful Crustaceans' Angerbomb].TimerReady}) /itemnotify  "Visage of the Powerslave" rightmouseup
+	/if (!${FindItem[Visage of the Powerslave].TimerReady}) /itemnotify  "Visage of the Powerslave" rightmouseup
 
 	/if (${Me.CombatAbilityReady[Bazu Bellow]}) /discipline Bazu Bellow
 	
 	/if (${Me.AbilityReady[Slam]}) /doability Slam
 
-	/itemnotify ${FindItem[lost sands].InvSlot} rightmouseup
+	/useitem "Sword of the Lost Sands"
 		
 /return
